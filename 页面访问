@@ -1,0 +1,14 @@
+import requests
+from lxml import html
+url='https://movie.douban.com/' #需要爬数据的网址
+page=requests.Session().get(url) 
+tree=html.fromstring(page.text) 
+result=tree.xpath('//td[@class="title"]//a/text()') #获取需要的数据
+
+
+#‘//td[@class=”title”]//a/text()’ 
+#//td ：这个相当于指定是大目录；
+#[@class=”title”]：这个相当于指定的小目录；
+#//a ：这个相当于最小的目录；
+#/text()：这个是提取其中的数据。
+#result=tree.xpath('//li[@class="title"]//a/text()')
