@@ -1,0 +1,17 @@
+中
+# 导入之前安装的库
+import requests
+from bs4 import BeautifulSoup
+
+# 首先定义以个变量url并赋值为目标网站'http://www.0011kytt.com'以及要搜索的电影名movie_name
+# 注意引号，字符串必须用引号包围起来
+movie_name = '霸王别姬'
+url = 'http://www.0011kytt.com'
+# 然后用request.get()来获取网页
+r = requests.get(url)
+# 这里要根据网页的编码来设置解码，这个目标网站编码为'utf-8'
+r.encoding = 'utf-8'
+# 然后获取网页源码并赋值给变量html
+html = r.text
+# 最后打印出网页源码
+print(html)
